@@ -17,6 +17,8 @@ import com.plcoding.core.navigation.Route
 import com.plcoding.onboarding_presentation.welcome.WelcomeScreen
 
 class MainActivity : ComponentActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
