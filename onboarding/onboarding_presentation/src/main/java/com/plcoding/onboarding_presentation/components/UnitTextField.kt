@@ -36,6 +36,7 @@ fun UnitTextField(
             keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Number
             ),
+
             singleLine = true,
             modifier = Modifier
                 .width(IntrinsicSize.Min) // significa que ocupara el ancho que necesite

@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.plcoding.core.base.BaseViewModel
 import com.plcoding.core.domain.model.Gender
 import com.plcoding.core.domain.preferences.Preferences
 import com.plcoding.core.navigation.Route
@@ -21,14 +22,12 @@ import javax.inject.Inject
 @HiltViewModel
 class GenderViewModel @Inject constructor(
     private val preferences: Preferences
-): ViewModel() {
+): BaseViewModel() {
 
     var selectedGender by mutableStateOf<Gender>(Gender.Male)
         private set //de este modo solo se puede cambiar su valor desde el viewmodel
 
-    private val _uiEvent = Channel<UIEvent>() // para informar a nuestros composables de cambios visuales por ejemplo cambiar pantalla, mostrar un msj etc
-    //Channel sirve para hacer eventos o acciones una sola vez, y que al ocurrir cambios de config no se repitan como si pasaria con state flow o livedata
-    val uiEvent = _uiEvent.receiveAsFlow()
+
 
     fun onGenderClick(gender: Gender) {
         selectedGender = gender
